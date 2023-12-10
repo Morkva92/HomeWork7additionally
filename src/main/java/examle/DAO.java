@@ -1,8 +1,7 @@
-package example;
-
+package examle;
 import java.util.List;
 
-public interface DAO<T> {
+public interface DAO<T>{
     void create(T object);
 
     void update(T object);
@@ -11,4 +10,3 @@ public interface DAO<T> {
 
     List<T> getAll();
 }
-
