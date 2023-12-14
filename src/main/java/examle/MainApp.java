@@ -46,11 +46,12 @@ public class MainApp {
                 .max(Comparator.comparing(CurrencyUnit::getRate));
 
         if (maxRateCurrency.isPresent()) {
-            System.out.println("Max currency rate is : " + maxRateCurrency.get().getRate());
+            System.out.println("Максимальный курс валюты: " + maxRateCurrency.get().getRate());
         } else {
-            System.out.println("No data available for the specified period.");
+            System.out.println("Нет данных за указанный период.");
         }
     }
+
 
 
     private static List<CurrencyUnit> getCurrencyStatistic() {
@@ -76,14 +77,15 @@ public class MainApp {
 
     private static URL getUrlWithParams() throws MalformedURLException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter the start date of the period (yyyyMMdd)");
+        System.out.println("Введите начальную дату периода (yyyyMMdd):");
         startDate += scanner.nextLine();
-        System.out.println("Enter the final date of the period (yyyyMMdd)");
+        System.out.println("Введите конечную дату периода (yyyyMMdd):");
         finishDate += scanner.nextLine();
         currencyCode += "usd";
         url += (startDate + finishDate + currencyCode + sortAndOrdersParams);
         return new URL(url);
     }
+
 
     public static String getStringFromResponse(URL url) throws IOException {
         String strBuf;

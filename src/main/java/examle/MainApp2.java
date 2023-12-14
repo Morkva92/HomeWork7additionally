@@ -31,16 +31,15 @@ public class MainApp2 {
                 CurrencyUnit currencyUnit = currencyUnits.get(0);
                 return currencyUnit.getRate();
             } else {
-                System.out.println("No data available for the specified date.");
+                System.out.println("Данные для указанной даты отсутствуют.");
                 return 0.0;
             }
 
         } catch (IOException e) {
-            System.out.println("Error fetching exchange rate data: " + e.getMessage());
+            System.out.println("Ошибка при получении данных о курсе валюты: " + e.getMessage());
             return 0.0;
         }
     }
-
 
     static URL buildUrlWithParams(String date, String currencyCode, String code) throws MalformedURLException {
         try {
@@ -60,7 +59,6 @@ public class MainApp2 {
             return null;
         }
     }
-
 
     public static String getStringFromResponse(URL url) throws IOException {
         String strBuf;
