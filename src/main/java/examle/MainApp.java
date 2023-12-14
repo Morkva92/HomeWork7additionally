@@ -16,7 +16,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class MainApp {
@@ -37,6 +39,19 @@ public class MainApp {
         String formattedString = String.format("Average currency is : %.2f", averageSalary);
         System.out.println(formattedString);
     }
+    public static void getMaxCurrencyRate() {
+        List<CurrencyUnit> currencyUnits = getCurrencyStatistic();
+
+        Optional<CurrencyUnit> maxRateCurrency = currencyUnits.stream()
+                .max(Comparator.comparing(CurrencyUnit::getRate));
+
+        if (maxRateCurrency.isPresent()) {
+            System.out.println("Max currency rate is : " + maxRateCurrency.get().getRate());
+        } else {
+            System.out.println("No data available for the specified period.");
+        }
+    }
+
 
     private static List<CurrencyUnit> getCurrencyStatistic() {
         Type itemsListType = new TypeToken<List<CurrencyUnit>>() {

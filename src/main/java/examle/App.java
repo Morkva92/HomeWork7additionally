@@ -1,5 +1,8 @@
 package examle;
 
+import examle.MainApp;
+import examle.MainApp2;
+
 import java.util.Scanner;
 
 public class App {
@@ -10,6 +13,7 @@ public class App {
             System.out.println("Выберите опцию:");
             System.out.println("1. Получить средний курс валюты");
             System.out.println("2. Получить курс валюты на указанную дату");
+            System.out.println("3. Получить максимальный курс валюты за указанный период");
 
             int choice = scanner.nextInt();
 
@@ -19,8 +23,10 @@ public class App {
                 String date = getDateFromUser();
                 double exchangeRate = MainApp2.getExchangeRateByDate(date);
                 System.out.printf("Курс валюты на указанную дату: %.2f%n", exchangeRate);
+            } else if (choice == 3) {
+                MainApp.getMaxCurrencyRate();
             } else {
-                System.out.println("Неверный выбор. Пожалуйста, выберите 1 или 2.");
+                System.out.println("Неверный выбор. Пожалуйста, выберите 1, 2 или 3.");
             }
 
         } catch (Exception e) {

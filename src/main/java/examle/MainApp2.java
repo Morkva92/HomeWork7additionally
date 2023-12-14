@@ -8,8 +8,6 @@ import org.apache.http.client.utils.URIBuilder;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Type;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -22,7 +20,7 @@ public class MainApp2 {
 
     public static double getExchangeRateByDate(String inputDate) {
         try {
-            URL url = buildUrlWithParams(inputDate, "usd");
+            URL url = buildUrlWithParams(inputDate, "usd", currencyCode);
             String response = getStringFromResponse(url);
 
             Gson gson = new GsonBuilder().setDateFormat("dd.MM.yyyy").create();
@@ -44,7 +42,7 @@ public class MainApp2 {
     }
 
 
-    private static URL buildUrlWithParams(String date, String currencyCode) throws MalformedURLException {
+    static URL buildUrlWithParams(String date, String currencyCode, String code) throws MalformedURLException {
         try {
             URIBuilder uriBuilder = new URIBuilder(url);
             uriBuilder.addParameter("start", date);
