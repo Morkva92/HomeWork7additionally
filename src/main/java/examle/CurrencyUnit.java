@@ -17,6 +17,10 @@ public class CurrencyUnit {
     private double rate;
 
     public CurrencyUnit() {
+
+    }
+    public double getRate() {
+        return rate;
     }
 
     @Override
@@ -28,4 +32,6 @@ public class CurrencyUnit {
                 ", rate=" + rate +
                 '}';
     }
+
+
 }

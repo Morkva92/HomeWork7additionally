@@ -1,9 +1,10 @@
 package examle;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
-public class CurrencyUnitDao extends AbstractDAO<CurrencyUnit>{
+public class CurrencyUnitDao extends AbstractDAO<CurrencyUnit> {
     public CurrencyUnitDao(EntityManager em) {
         super(em);
     }

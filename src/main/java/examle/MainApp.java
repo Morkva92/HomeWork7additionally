@@ -16,8 +16,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,7 +27,7 @@ public class MainApp {
     private static String sortAndOrdersParams = "&sort=exchangedate&order=desc&json";
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("Bank");
     private static EntityManager em = emf.createEntityManager();
-    private static int quantityDaysInPeriod;
+
 
     public static void getAverageCurrency() {
         saveStatisticToBd(getCurrencyStatistic());
@@ -86,7 +84,7 @@ public class MainApp {
         return strBuf;
     }
 
-    private static byte[] responseBodyToArray(InputStream is) throws IOException {
+    static byte[] responseBodyToArray(InputStream is) throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         byte[] buf = new byte[10240];
         int r;
@@ -98,4 +96,6 @@ public class MainApp {
 
         return bos.toByteArray();
     }
+
+
 }
